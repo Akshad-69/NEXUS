@@ -1,0 +1,39 @@
+{
+  "name": "nexus-mission-control",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NEXUS Mission Control — one command center for your entire software delivery lifecycle.",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build:packages": "npm run build -w @nexus/types && npm run build -w @nexus/utils",
+    "dev": "npm run build:packages && concurrently -n api,web -c cyan,magenta \"npm run dev -w @nexus/api\" \"npm run dev -w @nexus/web\"",
+    "dev:api": "npm run dev -w @nexus/api",
+    "dev:web": "npm run dev -w @nexus/web",
+    "build": "npm run build:packages && npm run build -w @nexus/api && npm run build -w @nexus/web",
+    "start": "npm run start -w @nexus/api",
+    "seed": "npm run build:packages && npm run seed -w @nexus/api",
+    "migrate": "npm run migrate -w @nexus/api",
+    "doctor": "node scripts/doctor.mjs",
+    "nexus": "node scripts/nexus.mjs",
+    "nexus:start": "node scripts/nexus-start.mjs",
+    "typecheck": "npm run build:packages && npm run typecheck -w @nexus/api && npm run typecheck -w @nexus/web",
+    "lint": "tsc -p packages/types/tsconfig.json --noEmit && tsc -p packages/utils/tsconfig.json --noEmit && npm run typecheck -w @nexus/api && npm run typecheck -w @nexus/web",
+    "test": "npm run build:packages && npm run test -w @nexus/api && npm run test -w @nexus/web",
+    "test:e2e": "playwright test",
+    "clean": "rimraf apps/*/dist packages/*/dist apps/api/data",
+    "db:setup": "npm run db:setup -w @nexus/api",
+    "ai:report": "tsx apps/api/src/scripts/ai-report.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "concurrently": "^10.0.5",
+    "typescript": "^5.9.3"
+  }
+}

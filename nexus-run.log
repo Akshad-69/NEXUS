@@ -1,0 +1,9 @@
+[2m15:14:11.251[0m [36mINFO [0m [data]        postgresql document store ready
+[2m15:14:11.430[0m [36mINFO [0m [store]       store loaded {"engine":"postgresql","collections":66,"documents":16873}
+[2m15:14:11.431[0m [36mINFO [0m [outbox]      outbox hydrated {"sequence":9633,"rows":2718,"instance":"local-14960-c5f2"}
+[2m15:14:11.472[0m [36mINFO [0m [transport]   durable event transport listening {"channel":"nexus_events"}
+[2m15:14:11.538[0m [36mINFO [0m [outbox]      reserved event sequence block {"base":10001,"through":10500,"instance":"local-14960-c5f2"}
+[2m15:14:12.413[0m [36mINFO [0m [integrations]integration probe complete {"tookMs":875,"connected":3,"reason":"boot"}
+[2m15:14:12.414[0m [36mINFO [0m [workers]     worker service started {"backend":"in-memory","recurringJobs":9}
+[2m15:14:12.782[0m [36mINFO [0m [server]      serving web bundle from API {"root":"E:\\DEVOPS2\\apps\\web\\dist"}
+[2m15:14:12.799[0m [36mINFO [0m [server]      NEXUS API ready {"address":"http://127.0.0.1:8787","mode":"local","ai":"demo","queue":"in-memory","cloudCredentials":"«redacted»"}
