@@ -3,7 +3,7 @@
 #
 #   docker compose up -d
 #
-# Core services (api, web) run with zero paid dependencies. The web service is
+# Core services AKSHAD (api, web) run with zero paid dependencies. The web service is
 # a one-shot bundler: it writes the built SPA into a shared volume and exits,
 # and the API serves it from /web-dist. The profiled
 # services (postgres, prometheus, grafana, jenkins, registry, nginx) are
